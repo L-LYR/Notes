@@ -1,0 +1,462 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\LARGE\bfseries}{Problem 1.\Alph{section}}{1em}{}[]
+\titleformat{\subsection}[block]{\normalsize\bfseries}{\arabic{subsection}.}{1em}{}[]
+\titleformat{\paragraph}[block]{\small\bfseries}{[\arabic{paragraph}]}{1em}{Solution:}[]
+
+\title{Chapter 1}
+\author{HammerLi}
+\date{July 4-5, 2020}
+
+\begin{document}
+\maketitle
+
+\section{}
+\subsection{}
+Suppose $a$ and $b$ are real numbers, not both $0$ . Find real numbers $c$ and $d$ such that
+$$
+    \frac{1}{a+bi} = c+di.
+$$
+\paragraph{}
+$$
+    \frac{1}{a+bi} = \frac{a-bi}{(a+bi)(a-bi)} = \frac{a-bi}{a^2+b^2} = c+di
+    \Rightarrow \begin{cases}
+        c = \frac{a}{a^2+b^2} \\
+        d = -\frac{b}{a^2+b^2}
+    \end{cases}
+$$
+
+\subsection{}
+Show that
+$$
+    \frac{-1+\sqrt{3}i}{2}
+$$
+is a cube root of 1(meaning that its cube equals 1).
+\paragraph{}
+Simply, we have
+$$
+    \begin{aligned}
+        (\frac{-1+\sqrt{3}i}{2})^3
+         & = \frac{(-1+\sqrt{3}i)^3}{8}              \\
+         & = \frac{(-2-2\sqrt{3}i)(-1+\sqrt{3}i)}{8} \\
+         & = \frac{2(1+\sqrt{3}i)(1-\sqrt{3}i)}{8}   \\
+         & = \frac{2 \times (1+3)}{8}                \\
+         & = 1
+    \end{aligned}
+$$
+More tricky solution is as below which depends on the computation methods of n-th root of a complex.
+$$
+    \begin{aligned}
+        s & = \sqrt[3]{1}                                   \\
+          & = \sqrt[3]{1+0 \cdot i}                         \\
+          & = \sqrt[3]{\cos{0}+i\sin{0}}                    \\
+          & = \cos{\phi}+i\sin{\phi}                        \\
+          & (\phi = \frac{1}{3}(0+2k\pi) \quad k = 0, 1, 2)
+    \end{aligned}
+    \Rightarrow s = 1, \frac{-1+\sqrt{3}i}{2}, \frac{-1-\sqrt{3}i}{2}
+$$
+
+\subsection{}
+Find two distinct square roots of $i$.
+\paragraph{}
+Use the same tricky method shown above.
+$$
+    \begin{aligned}
+        s & = \sqrt{i}                                               \\
+          & = \sqrt{0+1 \cdot i}                                     \\
+          & = \sqrt{\cos{\frac{\pi}{2}} + i\sin{\frac{\pi}{2}}}      \\
+          & = \cos{\phi} + i\sin{\phi}                               \\
+          & (\phi = \frac{1}{2}(\frac{\pi}{2}+2k\pi) \quad k = 0, 1)
+    \end{aligned}
+    \Rightarrow s = \frac{\sqrt{2}(1+i)}{2},\frac{-\sqrt{2}(1+i)}{2}
+$$
+For another solution, let $i = (a+bi)^2$, we have
+$$
+    \begin{aligned}
+        i & = (a+bi)^2         \\
+          & = a^2 - b^2 + 2abi \\
+    \end{aligned}
+    \Rightarrow
+    \begin{cases}
+        a^2 - b^2 = 0 \\
+        2ab = 1       \\
+    \end{cases}
+    \Rightarrow
+    a = b = \pm\frac{\sqrt{2}}{2}
+$$
+And we will get the same answer.
+
+\subsection{}
+Show that $\alpha + \beta = \beta + \alpha$ for all $\alpha, \beta \in \bm{C}.$
+\paragraph{}
+Let $\alpha = a + bi, \beta = c + di$ for all $a,b,c,d \in \bm{R}$, we have
+$$
+    \begin{aligned}
+        \alpha + \beta    & = (a + bi) + (c + di)           \\
+                          & = (a + c) + (b + d)i            \\
+        \beta + \alpha    & = (c + di) + (a + bi)           \\
+                          & = (c + a) + (d + b)i            \\
+                          & = (a + c) + (b + d)i            \\
+        \Rightarrow \quad & \alpha + \beta = \beta + \alpha
+    \end{aligned}
+$$
+
+\subsection{}
+Show that $(\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)$ for all $\alpha, \beta, \lambda \in \bm{C}$.
+\paragraph{}
+Let $\alpha = a + bi, \beta = c + di, \lambda = e + fi$ for all $a,b,c,d,e,f \in \bm{R}$, we have
+$$
+    \begin{aligned}
+        (\alpha + \beta) + \lambda & = ((a + bi) + (c + di)) + (e + fi)                      \\
+                                   & = ((a + c) + (b + d)i) + (e + fi)                       \\
+                                   & = (a + c + e) + (b + d + f)i                            \\
+        \alpha + (\beta + \lambda) & = (a + bi) + ((c + di) +(e + fi))                       \\
+                                   & = (a + bi) + ((c + e) + (d + f)i)                       \\
+                                   & = (a + c + e) + (b + d + f)i                            \\
+        \Rightarrow        \quad   & (\alpha + \beta) + \lambda = \alpha + (\beta + \lambda)
+    \end{aligned}
+$$
+
+\subsection{}
+Show that $(\alpha\beta)\lambda=\alpha(\beta\lambda)$for all $\alpha,\beta,\lambda\in\bm{C}$.
+\paragraph{}
+Let $\alpha = a + bi, \beta = c + di, \lambda = e + fi$ for all $a,b,c,d,e,f \in \bm{R}$, we have
+$$
+    \begin{aligned}
+        (\alpha\beta)\lambda     & = ((a + bi)(c + di))(e + fi)                         \\
+                                 & = ((ac - bd) + (ad + bc)i)(e + fi)                   \\
+                                 & = (ace - bde - adf - bcf) + (ade + bce + acf - bdf)i \\
+        \alpha(\beta\lambda)     & = (a + bi)((c + di)(e + fi))                         \\
+                                 & = (a + bi)((ce - fd) + (cf + ed)i)                   \\
+                                 & = (ace - bde - adf - bcf) + (ade + bce + acf - bdf)i \\
+        \Rightarrow        \quad & (\alpha\beta)\lambda = \alpha(\beta\lambda)
+    \end{aligned}
+$$
+
+\subsection{}
+Show that for every $\alpha \in \bm{C}$, there exists a unique $\beta \in \bm{C}$ such that $\alpha + \beta = 0$.
+\paragraph{}
+We know for every $a \in \bm{R}$, there exists a unique $b \in \bm{R}$ such that $a + b = 0$, more specifically, $b = -a$,
+so we let $\alpha = a + bi,\beta = c + di, a,b,c,d\in \bm{R}$.
+Let $c = -a, d = -b$, there will be $\alpha + \beta = (a + c) + (b + d)i = 0$, so the unique one is $\beta = - a - bi = -\alpha$.
+
+\subsection{}
+Show that for every $\alpha \in \bm{C}$ with $\alpha\neq 0$, there exists a unique $\beta \in \bm{C}$ such that $\alpha\beta = 1$.
+\paragraph{}
+From the Problem 1, we know the unique one of $\alpha = a + bi, a,b\in \bm{R}$ is
+$$
+    \beta = \frac{a}{a^2+b^2} - \frac{b}{a^2+b^2}i
+$$
+
+\subsection{}
+Show that $\lambda(\alpha+\beta)=\lambda\alpha+\lambda\beta$for all $\lambda,\alpha,\beta\in\bm{C}$.
+\paragraph{}
+Let $\alpha = a + bi, \beta = c + di, \lambda = e + fi$ for all $a,b,c,d,e,f \in \bm{R}$, we have
+$$
+    \begin{aligned}
+        \lambda(\alpha+\beta)
+                          & = (e+fi)(a+bi+c+di)                              \\
+                          & =(e+fi)((a+c)+(b+d)i)                            \\
+                          & =(ae+ce-bf-df)+(af+cf+be+de)i                    \\
+        \lambda\alpha+\lambda\beta
+                          & =(e+fi)(a+bi)+(e+fi)(c+di)                       \\
+                          & =(ae-bf)+(af+be)i+(ce-df)+(cf+de)i               \\
+                          & =(ae+ce-bf-df)+(af+cf+be+de)i                    \\
+        \Rightarrow \quad & \lambda(\alpha+\beta)=\lambda\alpha+\lambda\beta
+    \end{aligned}
+$$
+
+\subsection{}
+Find $x\in \bm{R}^4$such that
+$$
+    (4,-3,1,7)+2x=(5,9,-6,8).
+$$
+\paragraph{}
+Let $x = (a,b,c,d), a,b,c,d\in \bm{R}$, and according to the equation above, we have
+$$
+    \begin{cases}
+        4+2a=5  \\
+        -3+2b=9 \\
+        1+2c=-6 \\
+        7+2d=8
+    \end{cases}\Rightarrow
+    \begin{cases}
+        a = 5 \\
+        b=6   \\
+        c=-5  \\
+        d = 5
+    \end{cases}\Rightarrow
+    x = (5,6,-5,5)
+$$
+
+\subsection{}
+Explain why there does not exist $\lambda \in \mathbf{C}$ such that
+\[
+    \lambda(2-3 i, 5+4 i,-6+7 i)=(12-5 i, 7+22 i,-32-9 i).
+\]
+\paragraph{}
+From the equation above, we have
+\[
+    \begin{cases}
+        \lambda(2-3i)=12-5i \\
+        \lambda(5+4i)=7+22i \\
+        \lambda(-6+7i)=-32-9i
+    \end{cases}
+\]
+For the first equation, we have $\lambda = 3+2i$.
+Also for the second equation, we need $\lambda = 3+2i$.
+But for the third equation, when $\lambda = 3+2i$,
+the left side will be $(3+2i)(-6+7i)=-32+9i\neq-32-9i$.
+So here exists conflicts.
+
+\subsection{}
+Show that $(x+y)+z=x+(y+z)$ for all $x, y, z \in \mathbf{F}^{n}$.
+\paragraph{}
+\[
+    \begin{aligned}
+        (x+y)+z & = ((x_1,x_2,\ldots,x_n)+(y_1,y_2,\ldots,y_n))+(z_1,z_2,\ldots,z_n) \\
+                & = (x_1+y_1,x_2+y_2,\ldots,x_n+y_n)+(z_1,z_2,\ldots,z_n)            \\
+                & = (x_1+y_1+z_1,x_2+y_2+z_2,\ldots,x_n+y_n+z_n)                     \\
+                & = (x_1+(y_1+z_1),x_2+(y_2+z_2),\ldots,x_n+(y_n+z_n))               \\
+                & = (x_1,x_2,\ldots,x_n)+(y_1+z_1,y_2+z_2,\ldots,y_n+z_n)            \\
+                & = (x_1,x_2,\ldots,x_n)+((y_1,y_2,\ldots,y_n)+(z_1,z_2,\ldots,z_n)) \\
+                & = x+(y+z)                                                          \\
+    \end{aligned}
+\]
+
+\subsection{}
+Show that $(a b) x=a(b x)$ for all $x \in \mathbf{F}^{n}$ and all $a, b \in \mathbf{F}$.
+\paragraph{}
+\[
+    \begin{aligned}
+        (a b) x & = (ab)(x_1,x_2,\ldots,x_n)         \\
+                & = (abx_1,abx_2,\ldots,abx_n)       \\
+                & = (a(bx_1),a(b_x2),\ldots,a(bx_n)) \\
+                & = a(bx_1,bx_2,\ldots,bx_n)         \\
+                & = a(bx)
+    \end{aligned}
+\]
+
+\subsection{}
+Show that $1 x=x$ for all $x \in \mathbf{F}^{n}$.
+\paragraph{}
+\[
+    1x = 1(x_1,x_2,\ldots,x_n) = (1x_1,1x_2,\ldots,1x_n) = (x_1,x_2,\ldots,x_n) =x
+\]
+
+\subsection{}
+Show that $\lambda(x+y)=\lambda x+\lambda y$   for all  $\lambda \in \mathbf{F}$  and all  $x, y \in \mathbf{F}^{n}$.
+\paragraph{}
+\[
+    \begin{aligned}
+        \lambda(x+y) & =\lambda((x_1,x_2,\ldots,x_n)+(y_1,y_2,\ldots,y_n))                                        \\
+                     & =\lambda(x_1+y_1,x_2+y_2,\ldots,x_n+y_n)                                                   \\
+                     & =(\lambda(x_1+y_1),\lambda(x_2+y_2),\ldots,\lambda(x_n+y_n))                               \\
+                     & =(\lambda x_1+\lambda y_1,\lambda x_2+\lambda y_2,\ldots,\lambda x_n+\lambda y_n)          \\
+                     & =(\lambda x_1,\lambda x_2,\ldots,\lambda x_n)+(\lambda y_1,\lambda y_2,\ldots,\lambda y_n) \\
+                     & =\lambda x+\lambda y
+    \end{aligned}
+\]
+
+\subsection{}
+Show that $(a+b) x=a x+b x$ for all $a, b \in \mathbf{F}$ and all $x \in \mathbf{F}^{n}$.
+\paragraph{}
+\[
+    \begin{aligned}
+        (a+b) x & =(a+b)(x_1,x_2,\ldots,x_n)                       \\
+                & =((a+b)x_1,(a+b)x_2,\ldots,(a+b)x_n)             \\
+                & =(ax_1+bx_1,ax_2+bx_2,\ldots,ax_n+bx_n)          \\
+                & =(ax_1,ax_2,\ldots,ax_n)+(bx_1,bx_2,\ldots,bx_n) \\
+                & =ax+bx
+    \end{aligned}
+\]
+\section{}
+
+\subsection{}
+Prove that $-(-v)=v$ for every $v \in V$.
+\paragraph{}
+
+\subsection{}
+Suppose $a \in \mathbf{F}, v \in V,$ and $a v=0$.Prove that $a=0$ or $v=0$.
+\paragraph{}
+
+\subsection{}
+Suppose $v, w \in V .$ Explain why there exists a unique $x \in V$ such that$v+3 x=w$.
+\paragraph{}
+
+\subsection{}
+The empty set is not a vector space. The empty set fails to satisfy only one of the requirements listed in $19 .$ Which one?
+\paragraph{}
+
+\subsection{}
+Show that in the definition of a vector space $(19),$ the additive inverse condition can be replaced with the condition that
+\[
+    0 v=0 \text { for all } v \in V
+\]
+\paragraph{}
+
+\subsection{}
+Here the 0 on the left side is the number 0 , and the 0 on the right side is the additive identity of $V$. (The phrase "a condition can be replaced" in a definition means that the collection of objects satisfying the definition is unchanged if the original condition is replaced with the new condition.)
+Let $\infty$ and $-\infty$ denote two distinct objects, neither of which is in $\mathbf{R}$. Define an addition and scalar multiplication on $\mathbf{R} \cup\{\infty\} \cup\{-\infty\}$ as you could guess from the notation. Specifically, the sum and product of two real numbers is as usual, and for $t \in \mathbf{R}$ define
+\[
+    \begin{aligned}
+        t \infty=\left\{\begin{array}{ll}
+            -\infty & \text { if } t<0, \\
+            0       & \text { if } t=0, \\
+            \infty  & \text { if } t>0,
+        \end{array}\right. & t(-\infty)=\left\{\begin{array}{ll}
+            \infty  & \text { if } t<0 \\
+            0       & \text { if } t=0 \\
+            -\infty & \text { if } t>0
+        \end{array}\right. \\
+        t+\infty=\infty+t                                 & =\infty,                                            \\
+        t+(-\infty)=(-\infty)+t                           & =-\infty                                            \\
+        \infty+\infty                                     & =\infty,                                            \\
+        (-\infty)+(-\infty)                               & =-\infty,                                           \\
+        \infty+(-\infty)                                  & =0
+    \end{aligned}
+\]
+Is $\mathbf{R} \cup\{\infty\} \cup\{-\infty\}$ a vector space over $\mathbf{R} ?$ Explain.
+\paragraph{}
+
+\section{}
+\subsection{}
+For each of the following subsets of $\mathbf{F}^{3},$ determine whether it is a subspace of $\mathbf{F}^{3}$\\
+(a) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}+2 x_{2}+3 x_{3}=0\right\}$ \\
+(b) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}+2 x_{2}+3 x_{3}=4\right\}$\\
+(c) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1} x_{2} x_{3}=0\right\}$\\
+(d) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}=5 x_{3}\right\}$
+\paragraph{}
+
+\subsection{}
+Verify all the assertions in Example 1.35.
+\paragraph{}
+
+\subsection{}
+Show that the set of differentiable real-valued functions $f$ on the interval (-4,4) such that $f^{\prime}(-1)=3 f(2)$ is a subspace of $\mathbf{R}^{(-4,4)}$
+\paragraph{}
+
+\subsection{}
+Suppose $b \in \mathbf{R} .$ Show that the set of continuous real-valued functions $f$ on the interval [0,1] such that $\int_{0}^{1} f=b$ is a subspace of $\mathbf{R}^{[0,1]}$ if and only if $b=0$
+\paragraph{}
+
+\subsection{}
+Is $\mathbf{R}^{2}$ a subspace of the complex vector space $\mathbf{C}^{2} ?$
+\paragraph{}
+
+\subsection{}
+(a) $\quad$ Is $\left\{(a, b, c) \in \mathbf{R}^{3}: a^{3}=b^{3}\right\}$ a subspace of $\mathbf{R}^{3} ?$\\
+(b) $\quad$ Is $\left\{(a, b, c) \in \mathbf{C}^{3}: a^{3}=b^{3}\right\}$ a subspace of $\mathbf{C}^{3} ?$
+\paragraph{}
+
+\subsection{}
+Give an example of a nonempty subset $U$ of $\mathbf{R}^{2}$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$ ), but $U$ is not a subspace of $\mathbf{R}^{2}$
+\paragraph{}
+
+\subsection{}
+Give an example of a nonempty subset $U$ of $\mathbf{R}^{2}$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\mathbf{R}^{2}$
+\paragraph{}
+
+\subsection{}
+A function $f: \mathbf{R} \rightarrow \mathbf{R}$ is called periodic if there exists a positive number $p$ such that $f(x)=f(x+p)$ for all $x \in \mathbf{R} .$ Is the set of periodic functions from $\mathbf{R}$ to $\mathbf{R}$ a subspace of $\mathbf{R}^{\mathbf{R}} ?$ Explain.
+\paragraph{}
+
+\subsection{}
+Suppose $U_{1}$ and $U_{2}$ are subspaces of $V .$ Prove that the intersection $U_{1} \cap U_{2}$ is a subspace of $V$
+\paragraph{}
+
+\subsection{}
+Prove that the intersection of every collection of subspaces of $V$ is a subspace of $V$
+\paragraph{}
+
+\subsection{}
+Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
+\paragraph{}
+
+\subsection{}
+Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two. [This exercise is surprisingly harder than the previous exercise, possibly because this exercise is not true if we replace $\mathbf{F}$ with a field containing only two elements.]
+\paragraph{}
+
+\subsection{}
+Verify the assertion in Example 1.38
+\paragraph{}
+
+\subsection{}
+Suppose $U$ is a subspace of $V .$ What is $U+U ?$
+\paragraph{}
+
+\subsection{}
+Is the operation of addition on the subspaces of $V$ commutative? In other words, if $U$ and $W$ are subspaces of $V$, is $U+W=W+U ?$
+\paragraph{}
+
+\subsection{}
+Is the operation of addition on the subspaces of $V$ associative? In other words, if $U_{1}, U_{2}, U_{3}$ are subspaces of $V,$ is
+\[
+    \left(U_{1}+U_{2}\right)+U_{3}=U_{1}+\left(U_{2}+U_{3}\right) ?
+\]
+\paragraph{}
+
+\subsection{}
+Does the operation of addition on the subspaces of $V$ have an additive identity? Which subspaces have additive inverses?
+\paragraph{}
+
+\subsection{}
+Prove or give a counterexample: if $U_{1}, U_{2}, W$ are subspaces of $V$ such that
+\[
+    U_{1}+W=U_{2}+W
+\]
+then $U_{1}=U_{2}$
+\paragraph{}
+
+\subsection{}
+Suppose
+\[
+    U=\left\{(x, x, y, y) \in \mathbf{F}^{4}: x, y \in \mathbf{F}\right\}
+\]
+Find a subspace $W$ of $\mathbf{F}^{4}$ such that $\mathbf{F}^{4}=U \oplus W$
+\paragraph{}
+
+\subsection{}
+Suppose
+\[
+    U=\left\{(x, y, x+y, x-y, 2 x) \in \mathbf{F}^{5}: x, y \in \mathbf{F}\right\}
+\]
+Find a subspace $W$ of $\mathbf{F}^{5}$ such that $\mathbf{F}^{5}=U \oplus W$
+\paragraph{}
+
+\subsection{}
+Suppose
+\[
+    U=\left\{(x, y, x+y, x-y, 2 x) \in \mathbf{F}^{5}: x, y \in \mathbf{F}\right\}
+\]
+Find three subspaces $W_{1}, W_{2}, W_{3}$ of $\mathbf{F}^{5},$ none of which equals $\{0\},$ such that $\mathbf{F}^{5}=U \oplus W_{1} \oplus W_{2} \oplus W_{3}$
+\paragraph{}
+
+\subsection{}
+Prove or give a counterexample: if $U_{1}, U_{2}, W$ are subspaces of $V$ such that
+\[
+    V=U_{1} \oplus W \quad \text { and } \quad V=U_{2} \oplus W
+\]
+then $U_{1}=U_{2}$
+\paragraph{}
+
+\subsection{}
+A function $f: \mathbf{R} \rightarrow \mathbf{R}$ is called even if
+\[
+    f(-x)=f(x)
+\]
+for all $x \in \mathbf{R} .$ \\
+A function $f: \mathbf{R} \rightarrow \mathbf{R}$ is called odd if
+\[
+    f(-x)=-f(x)
+\]
+for all $x \in \mathbf{R} .$ \\
+Let $U_{\mathrm{e}}$ denote the set of real-valued even functions on $\mathbf{R}$ and let $U_{\mathrm{o}}$ denote the set of real-valued odd functions on $\mathbf{R}$. Show that
+\[
+    \mathbf{R}^{\mathbf{R}}=U_{\mathrm{e}} \oplus U_{\mathrm{o}}.
+\]
+\paragraph{}
+
+\end{document}
