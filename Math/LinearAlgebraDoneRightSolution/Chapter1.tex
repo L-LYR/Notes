@@ -8,7 +8,7 @@
 
 \title{Chapter 1}
 \author{HammerLi}
-\date{July 4-5, 2020}
+\date{\today}
 
 \begin{document}
 \maketitle
@@ -46,6 +46,7 @@ $$
          & = 1
     \end{aligned}
 $$
+
 More tricky solution is as below which depends on the computation methods of n-th root of a complex.
 $$
     \begin{aligned}
@@ -72,6 +73,7 @@ $$
     \end{aligned}
     \Rightarrow s = \frac{\sqrt{2}(1+i)}{2},\frac{-\sqrt{2}(1+i)}{2}
 $$
+
 For another solution, let $i = (a+bi)^2$, we have
 $$
     \begin{aligned}
@@ -272,33 +274,54 @@ Show that $(a+b) x=a x+b x$ for all $a, b \in \mathbf{F}$ and all $x \in \mathbf
                 & =ax+bx
     \end{aligned}
 \]
+
 \section{}
 
 \subsection{}
 Prove that $-(-v)=v$ for every $v \in V$.
 \paragraph{}
+By the definition of additive inverse, we have $w + (-w) = 0$.
+The unique additive inverse of $v$ is $-v$ and for $-v$ the unique one is
+$-(-v)$. So we get $-(-v) = v$ for every $v \in V$.
 
 \subsection{}
 Suppose $a \in \mathbf{F}, v \in V,$ and $a v=0$.Prove that $a=0$ or $v=0$.
 \paragraph{}
+If $a = 0$, then we are done. If $a \neq 0$, we have $ \frac{1}{a} (av) = \frac{1}{a}(0) \Rightarrow v = 0$.
+What should be pointed is that the 0 on the right side of the equation is a vector, so we do depend on the
+rule that a number times the vector 0 will be vector 0.
 
 \subsection{}
-Suppose $v, w \in V .$ Explain why there exists a unique $x \in V$ such that$v+3 x=w$.
+Suppose $v, w \in V .$ Explain why there exists a unique $x \in V$ such that $v+3 x=w$.
 \paragraph{}
+Adding $-w$ and then multiplying $\frac{1}{3}$ to the both sides of the equation, we have
+\[
+    x + \frac{1}{3}(v - w) = 0
+\]
+Suppose $y = \frac{1}{3}(v - w)$ and we have $x + y = 0$. We know $-y$ is the unique additive
+inverse of $y$, so we get $x = -y$. And that means for every $y$, $x$ is unique. So we are Done.
+
 
 \subsection{}
-The empty set is not a vector space. The empty set fails to satisfy only one of the requirements listed in $19 .$ Which one?
+The empty set is not a vector space. The empty set fails to satisfy only one of the requirements listed in $1.19$. Which one?
 \paragraph{}
+Every one, I think. Because the empty set has no element.
 
 \subsection{}
-Show that in the definition of a vector space $(19),$ the additive inverse condition can be replaced with the condition that
+Show that in the definition of a vector space $(1.19),$ the additive inverse condition can be replaced with the condition that
 \[
     0 v=0 \text { for all } v \in V
 \]
+Here the 0 on the left side is the number 0 , and the 0 on the right side is the additive identity of $V$. (The phrase "a condition can be replaced" in a definition means that the collection of objects satisfying the definition is unchanged if the original condition is replaced with the new condition.)
 \paragraph{}
+We can easily get the equation below.
+\[
+    0v = (1 + (-1))v = 1v + (-1v) = v + (-v)
+\]
+So from $0v = 0$, we have $v + (-v) = 0$. This means the additive inverse condition
+can be replace with this condition.
 
 \subsection{}
-Here the 0 on the left side is the number 0 , and the 0 on the right side is the additive identity of $V$. (The phrase "a condition can be replaced" in a definition means that the collection of objects satisfying the definition is unchanged if the original condition is replaced with the new condition.)
 Let $\infty$ and $-\infty$ denote two distinct objects, neither of which is in $\mathbf{R}$. Define an addition and scalar multiplication on $\mathbf{R} \cup\{\infty\} \cup\{-\infty\}$ as you could guess from the notation. Specifically, the sum and product of two real numbers is as usual, and for $t \in \mathbf{R}$ define
 \[
     \begin{aligned}
@@ -321,75 +344,287 @@ Let $\infty$ and $-\infty$ denote two distinct objects, neither of which is in $
 Is $\mathbf{R} \cup\{\infty\} \cup\{-\infty\}$ a vector space over $\mathbf{R} ?$ Explain.
 \paragraph{}
 
+No. If it is a vector space over $\mathbf{R}$, for example, we have
+\[
+    \infty = (2 - 1)\infty = 2\infty + (-1)\infty = \infty + (-\infty) = 0
+\]
+But this is impossible!
+
 \section{}
 \subsection{}
 For each of the following subsets of $\mathbf{F}^{3},$ determine whether it is a subspace of $\mathbf{F}^{3}$\\
 (a) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}+2 x_{2}+3 x_{3}=0\right\}$ \\
-(b) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}+2 x_{2}+3 x_{3}=4\right\}$\\
-(c) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1} x_{2} x_{3}=0\right\}$\\
+(b) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}+2 x_{2}+3 x_{3}=4\right\}$ \\
+(c) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1} x_{2} x_{3}=0\right\}$ \\
 (d) $\quad\left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}=5 x_{3}\right\}$
 \paragraph{}
+(a) Let $U = \left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}+2 x_{2}+3 x_{3}=0\right\}$.
+\subparagraph{}
+1) Obviously, $(0,0,0) \in U$.
+\subparagraph{}
+2) Suppose $u = (x_1,x_2,x_3), v = (y_1,y_2,y_3) \in U$ and we have
+\[
+    \begin{aligned}
+                    &
+        \begin{cases}
+            x_1 + 2x_2 + 3x_3 = 0 \\
+            y_1 + 2y_2 + 3y_3 = 0
+        \end{cases}        \\
+        \Rightarrow & \quad
+        (x_1+y_1)+2(x_2+y_2)+3(x_3+y_3)=0 \\
+        \Rightarrow & \quad
+        u+v=(x_1+y_1,x_2+y_2,x_3+y_3) \in U
+    \end{aligned}
+\]
+\subparagraph{}
+3) Suppose $a\in F, u = (x_1,x_2,x_3)\in U$ and we have
+\[
+    \begin{aligned}
+                    & \quad x_1+2x_2+3x_3=0 \\
+        \Rightarrow & \quad
+        a(x_1+2x_2+3x_3)=ax_1+2ax_2+3ax_3=0 \\
+        \Rightarrow & \quad
+        au = (ax_1,ax_2,ax_3) \in U
+    \end{aligned}
+\]
+Because $U$ is a nonempty subset of $F^3$ that is closed
+under addition and scalar multiplication, $U$ is a subspace of $F^3$.
+\newline
+\newline
+(b) Let $U = \left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}+2 x_{2}+3 x_{3}=4\right\}$.
+Simply, we know $(0,0,0) \notin U$, so $U$ is not a subspace of $F^3$.
+\newline
+\newline
+(c) Let $U = \left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1} x_{2} x_{3}=0\right\}$.
+Obviously, $(0,0,0) \in U$. But $U$ is not closed under addition and scalar multiplication, so $U$ is not a subspace of $F^3$.
+\newline
+\newline
+(d) Let $U = \left\{\left(x_{1}, x_{2}, x_{3}\right) \in \mathbf{F}^{3}: x_{1}=5 x_{3}\right\}$.
+This format is the same with (a). So it is a subspace of $F^3$, too.
 
 \subsection{}
 Verify all the assertions in Example 1.35.
 \paragraph{}
 
+(a) If this set is a subspace of $\mathbf{F}^4$, then $(0,0,0,0)\in \mathbf{F}^4$, then $0=5\cdot 0+b$.
+Hence $b=0$. (b) (c) and (d) is similar to Problem 3 and 4.
+Now let us consider (e).
+\newline
+\newline
+Denote the set of all sequences of complex numbers with limit $0$ by $A$.
+\newline
+
+1) Additive identity: it is clear that $(0,0,\cdots)\in A$.
+\newline
+
+2) Closed under addition: if $(a_1,a_2,\cdots),(b_1,b_2,\cdots)\in A$, then
+\[
+    \lim_{n\to\infty}a_n=0\quad\text{and}\quad\lim_{n\to\infty}b_n=0.
+\]
+It is easy to see
+\[
+    \lim_{n\to\infty}(a_n+b_n)=\lim_{n\to\infty}a_n+\lim_{n\to\infty}b_n=0+0=0.
+\]
+This means $(a_1+b_1,a_2+b_2,\cdots)=(a_1,a_2,\cdots)+(b_1,b_2,\cdots)\in A$.
+\newline
+
+3) Closed under scalar multiplication: if $(a_1,a_2,\cdots)\in A$, then
+\[
+    \lim_{n\to\infty}a_n=0.
+\]
+For any $\lambda\in \mathbf{C}$, it is easy to see
+\[
+    \lim_{n\to\infty}(\lambda a_n)=\lambda\lim_{n\to\infty} a_n=\lambda 0=0.
+\]
+This means $\lambda(a_1,a_2,\cdots)=(\lambda a_1,\lambda a_2,\cdots)\in A$.
+
 \subsection{}
 Show that the set of differentiable real-valued functions $f$ on the interval (-4,4) such that $f^{\prime}(-1)=3 f(2)$ is a subspace of $\mathbf{R}^{(-4,4)}$
 \paragraph{}
+Denote the set of differentiable real-valued functions $f$ on the interval $(-4,4)$ such that $f'(-1)=3f(2)$ by $V$.
+
+Additive identity: it is clear that the constant function $f\equiv 0$ is contained in $V$.
+
+Closed under addition: if $f,g\in V$, then $f$ and $g$ are differentiable real-valued functions.
+So is $f+g$. Moreover,
+\[
+    (f+g)'(-1)=f'(-1)+g'(-1)=3f(2)+3g(2)=3(f(2)+g(2))=3(f+g)(2).
+\]
+This concludes $V$ is closed under addition.
+
+Closed under scalar multiplication: if $f\in V$, for any $\lambda\in \mathbf{R}$, then $f$ is differentiable real-valued functions.
+So is $\lambda f$. Moreover,
+\[
+    (\lambda f)'(-1)=\lambda f'(-1)=\lambda (3f)(2)=3(\lambda f)(2).
+\]
+This deduces $V$ is closed under scalar multiplication.
 
 \subsection{}
 Suppose $b \in \mathbf{R} .$ Show that the set of continuous real-valued functions $f$ on the interval [0,1] such that $\int_{0}^{1} f=b$ is a subspace of $\mathbf{R}^{[0,1]}$ if and only if $b=0$
 \paragraph{}
+Denote the set of continuous real-valued functions $f$ on the interval $[0,1]$ such that $\int_0^1f=b$ by $V_b$.
+
+If $V_b$ is a subspace of $\mathbf{R}^{[0,1]}$, then for any $f \in V_b$, we have $\int_0^1f=b$.
+And we also have $kf\in V_b$ for any $k\in \mathbf{R}$. Hence
+\[
+    b = \int_0^1(kf) = k\int_0^1f = kb
+\]
+for all $k\in \mathbf{R}$, and this happens if and only if $b = 0$.
+
+Now if $b = 0$, then for any $f,g\in V_0$ and $\lambda \in \mathbf{R}$. We have
+\[
+    \int_0^1(f+g) = \int_0^1f+\int_0^1g = 0 + 0 = 0
+\]
+and $f+g$ is continuous real-valued functions since $f$ and $g$ are.
+So $V_0$ is closed under addition.
+
+Similarly,
+\[
+    \int_0^1(\lambda f) = \lambda\int_0^1 f = k0 = 0
+\]
+and $\lambda f$ is continuous real-valued functions since $f$ is.
+So $V_0$ is closed under scalar multiplication.
+
+At last, the constant function $f \equiv 0 \in V_0$, which is also the additive identity in $\mathbf{R}^{[0,1]}$.
+
+Hence $V_0$ is a subspace of $\mathbf {R}^n$.
 
 \subsection{}
 Is $\mathbf{R}^{2}$ a subspace of the complex vector space $\mathbf{C}^{2} ?$
 \paragraph{}
+No. $i \in C$ and $(1, 1)\in \mathbf{R}^{2}$, but $i(1,1) = (i,i)\notin \mathbf{R}^{2}$.
 
 \subsection{}
 (a) $\quad$ Is $\left\{(a, b, c) \in \mathbf{R}^{3}: a^{3}=b^{3}\right\}$ a subspace of $\mathbf{R}^{3} ?$\\
 (b) $\quad$ Is $\left\{(a, b, c) \in \mathbf{C}^{3}: a^{3}=b^{3}\right\}$ a subspace of $\mathbf{C}^{3} ?$
 \paragraph{}
+(a) $\left\{(a, b, c) \in \mathbf{R}^{3}: a^{3}=b^{3}\right\} = \left\{(a, b, c) \in \mathbf{R}^{3}: a=b\right\}$
+It's obviously a subspace of $\mathbf{R}^3$.
+
+(b) $\left\{(a, b, c) \in \mathbf{C}^{3}: a^{3}=b^{3}\right\} = \left\{(a, b, c) \in \mathbf{C}^{3}: a=b\ \text{or}\ a = \frac{1\pm \sqrt{3}i}{2}b\right\} = A$
+So we have $ x = (\frac{1+\sqrt{3}i}{2},1,0) \in A $ and $ y = (\frac{1-\sqrt{3}i}{2},1,0) \in A $ but $x + y = (1, 2, 0) \notin A$.
 
 \subsection{}
-Give an example of a nonempty subset $U$ of $\mathbf{R}^{2}$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$ ), but $U$ is not a subspace of $\mathbf{R}^{2}$
+Give an example of a nonempty \textbf{subset} $U$ of $\mathbf{R}^{2}$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$ ), but $U$ is not a \textbf{subspace} of $\mathbf{R}^{2}$
 \paragraph{}
+Suppose $U = \{(x,y)\in \mathbf{R}^2 : x , y\in \mathbf{Z}\}$. It's easy to proof that $U$ is closed under addition and under taking additive inverses.
+The most important is that $\frac{1}{2}\in R$ and $(1,1)\in U$ but $\frac{1}{2}(1,1) = (\frac{1}{2},\frac{1}{2}) \notin U$
 
 \subsection{}
 Give an example of a nonempty subset $U$ of $\mathbf{R}^{2}$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\mathbf{R}^{2}$
 \paragraph{}
+Suppose $U = \{(x,y)\in \mathbf{R}^2 : x = 0 \text{ or } y = 0\}$, then $U$ is nonempty. $(0,y),(x,0)\in U$, then for $\lambda \in \mathbf{R}$, we have
+$\lambda(0,y)=(0,\lambda y)\in U$. Similarly, we have $\lambda(x,0)=(\lambda x,0)\in U$, hence $U$ is under scalar multiplication. However, $(1,0), (0,1)\in U$ while
+$(0,1)+(1,0)=(1,1)\notin U$. That means $U$ is not a subspace of $\mathbf{R}^2$.
 
 \subsection{}
 A function $f: \mathbf{R} \rightarrow \mathbf{R}$ is called periodic if there exists a positive number $p$ such that $f(x)=f(x+p)$ for all $x \in \mathbf{R} .$ Is the set of periodic functions from $\mathbf{R}$ to $\mathbf{R}$ a subspace of $\mathbf{R}^{\mathbf{R}} ?$ Explain.
 \paragraph{}
+Denote the set of periodic functions from $\mathbf{R}$ to $\mathbf{R}$ by $S$.
+We have $f(x) = \cos(x) \in S$ and $g(x) = \sin\sqrt{2}(x) \in S$, then $h(x) = f(x) + g(x) = \cos x + \sin\sqrt{2}x$.
+Assume that there exists a positive number $p$ such that $h(x) = h(x+p)$ for all $x\in R$, then we have
+\[
+    \begin{aligned}
+        1 = h(0) = h(p) = h(-p)
+         & \Rightarrow
+        \begin{cases}
+            \cos p + \sin\sqrt{2}p = \cos (-p) + \sin\sqrt{2}(-p) \\
+            \cos p + \sin\sqrt{2}p = 1
+        \end{cases} \\
+         & \Rightarrow
+        \begin{cases}
+            \sin\sqrt{2}p = 0 \\
+            \cos p = 1
+        \end{cases}
+        \Rightarrow
+        \begin{cases}
+            p = 2k\pi \\
+            \sqrt{2}p=l\pi
+        \end{cases}(k,l\in \mathbf{Z})
+    \end{aligned}
+\]
+Hence,
+\[
+    \sqrt{2} = \frac{l\pi}{2k\pi} = \frac{l}{2k} \in \mathbf{Q}
+\]
+which is impossible. Therefore we get the conclusion.
 
 \subsection{}
 Suppose $U_{1}$ and $U_{2}$ are subspaces of $V .$ Prove that the intersection $U_{1} \cap U_{2}$ is a subspace of $V$
 \paragraph{}
+1. Additive identity: By definition, we know $0\in U_1$ and $0\in U_2$, hence $0\in U_1 \cap U_2$.
+
+2. Closed under addition: If $x, y \in U_1 \cap U_2$ then $x, y\in U_1$ and $x, y\in U_2$, hence
+$x + y \in U_1$ and also $x + y \in U_2$, then $x+y\in U_1 \cap U_2$.
+
+3. Closed under scalar multiplication: If $x\in U_1\cap U_2$, then $x \in U_1$ and $x \in U_2$. Then for any $\lambda in \mathbf{F}$,
+we have $\lambda x\in U_1$ and $\lambda x \in U_2$ since $U_1, U_2$ is closed under scalar multiplication. Therefore $\lambda x \in U_1 \cap U_2$.
 
 \subsection{}
 Prove that the intersection of every collection of subspaces of $V$ is a subspace of $V$
 \paragraph{}
+Assume $U_i$ are subspaces of $V$, where $i\in I$. Now we will show $\cap_{i\in I}U_i$ is a subspace of $V$.
+
+Additive identity: by definition $0\in U_i$ for every $i\in I$, hence $0\in \cap_{i\in I}U_i$.
+
+Closed under addition: if $x\in \cap_{i\in I}U_i$ and $y\in \cap_{i\in I}U_i$, then for any given $i\in I$,
+we have $x\in U_i$ and $y\in U_i$, hence $x+y\in U_i$ for $U_i$ is closed under addition. Therefore $x+y\in \cap_{i\in I}U_i$.
+
+Closed under scalar multiplication: if $x\in \cap_{i\in I}U_i$, then $x\in U_i$ for any given $i\in I$. Then for any $\lambda\in\mathbf{F}$,
+we have $\lambda x\in U_i$ since $U_i$ is closed under scalar multiplication. Therefore $\lambda x\in \cap_{i\in I}U_i$.
 
 \subsection{}
 Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
 \paragraph{}
+Suppose $U,W$ are both subspaces of $V$.
+
+If $U \cup W $ is a subspace of $V$, moreover $U \not\subset W$ and $W\not\subset U$. Consider $u \in U - W$ and $w \in W - U$, then $u + w\in U \cup W$.
+Hence $u+w\in U \text{ or } \in W$. If $u+w \in U$, then $w = (u+w) - u \in U$. We get a contradiction. If $u+w \in W$, then $u = (u+w)-w\in W$.
+We get another contradiction. Hence if $U\cup W$is a subspace of $V$, we must have $U\subset W$ or $W\subset U$.
+
+If $U\subset W$ or $W\subset U$, without loss of generality, we can assume $U\subset W$, then $U\sup W = W$ is obviously a subspace of $V$.
 
 \subsection{}
 Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two. [This exercise is surprisingly harder than the previous exercise, possibly because this exercise is not true if we replace $\mathbf{F}$ with a field containing only two elements.]
 \paragraph{}
+TODO
 
 \subsection{}
 Verify the assertion in Example 1.38
 \paragraph{}
+It is clear that $U$ and $W$ are subspaces of $\mathbf{F}^4$.
+
+Now assume that $(x_1,x_1,y_1,y_1)\in U$ and $(x_2,x_2,x_2,y_2)\in W$,
+then
+\[
+    \begin{aligned}
+          & (x_1,x_1,y_1,y_1)+(x_2,x_2,x_2,y_2)                                     \\
+        = & (x_1+x_2,x_1+x_2,y_1+x_2,y_1+y_2) \in \{(x,x,y,z):x,y,z\in\mathbf{F}\}.
+    \end{aligned}
+\]
+
+Hence $U+W\subset \{(x,x,y,z):x,y,z\in\mathbf{F}^4\}$. For any $x,y,z\in\mathbf{F}$, we have $(0,0,y-x,y-x)\in U$ and $(x,x,x,z+x-y)\in W$.
+
+However,
+\[
+    (x,x,y,z)=(0,0,y-x,y-x)+(x,x,x,z+x-y)\in U+W
+\]
+
+Hence $\{(x,x,y,z):x,y,z\in\mathbf{F}^4\}\subset U+W$.
+
+Combining this with previous argument, it follows that $U+W=\{(x,x,y,z):x,y,z\in\mathbf{F}\}$.
 
 \subsection{}
-Suppose $U$ is a subspace of $V .$ What is $U+U ?$
+Suppose $U$ is a subspace of $V .$ What is $U+U$ ?
 \paragraph{}
+It will still be $U$. Because $U$ is a subspace of $V$, hence closed under addition. Therefore for any $x,y\in U$, we have $x+y\in U$, i.e. $U+U\subset U$.
+Note that if $x\in U$, then $x=x+0\in U+U$, hence $U\subset U+U$. So $U+U=U$
 
 \subsection{}
 Is the operation of addition on the subspaces of $V$ commutative? In other words, if $U$ and $W$ are subspaces of $V$, is $U+W=W+U ?$
 \paragraph{}
+For $x\in U$ and $y\in W$, because $U$ is a subspace of $V$, hence closed under addition in $V$ is commutative, we have $x+y=y+x\in W+U$.
+This implies $U+W\subset W+U$. Similarly, we have $W+U \subset U+W$. Hence $U+W=W+U$.
 
 \subsection{}
 Is the operation of addition on the subspaces of $V$ associative? In other words, if $U_{1}, U_{2}, U_{3}$ are subspaces of $V,$ is
@@ -397,10 +632,21 @@ Is the operation of addition on the subspaces of $V$ associative? In other words
     \left(U_{1}+U_{2}\right)+U_{3}=U_{1}+\left(U_{2}+U_{3}\right) ?
 \]
 \paragraph{}
+Note that in $V$, we have $(x+y)+z=x+(y+z)$. Hence this similar to Problem 16. Let $x_i\in U_i, i=1,2,3$, then
+\[
+    (x_1+x_2)+x_3=x_1+(x_2+x_3)\in U_1 +(U_2+U_3)
+\]
+Since every element in $(U_1+U_2)+U_3$ can be expressed as the form $(x_1+x_2)+x_3$. It follows that $(U_1+U_2)+U_3\subset U_1+(U_2+U_3)$.
+Similarly, we also have $U_1+(U_2+U_3)\subset (U_1+U_2)+U_3$. Hence $(U_1+U_2) + U_3=U_1+(U_2+U_3)$.
 
 \subsection{}
 Does the operation of addition on the subspaces of $V$ have an additive identity? Which subspaces have additive inverses?
 \paragraph{}
+Denote the additive identity by $U$. Suppose $W$ is a subspace of $V$. By definition, we have $U + W = W$. This means $U\subset W$ by the similar arguments in
+Problem 15 and 16. Hence the only possibility is $U = 0$.
+
+Suppose subspace $W$ of $V$ has additive inverses, then there exists a subspace $S$ of $V$ such that $S+W=0$. This can only happen when $W=0$
+since $W\subset W+S$.
 
 \subsection{}
 Prove or give a counterexample: if $U_{1}, U_{2}, W$ are subspaces of $V$ such that
@@ -409,6 +655,11 @@ Prove or give a counterexample: if $U_{1}, U_{2}, W$ are subspaces of $V$ such t
 \]
 then $U_{1}=U_{2}$
 \paragraph{}
+It's easy to give. Suppose $U_1 = V, U_2 \subseteq V, W = V - U_2 \subset V$. Then we have
+\[
+    U_2 + W = V - U_2 + U_2 = V = U_1 = U_1 + W
+\]
+But $U1 \neq U_2$.
 
 \subsection{}
 Suppose
@@ -417,6 +668,16 @@ Suppose
 \]
 Find a subspace $W$ of $\mathbf{F}^{4}$ such that $\mathbf{F}^{4}=U \oplus W$
 \paragraph{}
+$W = \{(0,z,0,w) \in \mathbf{F}^4: z, w\in \mathbf{F}\}$. For any $(x,y,z,w)\in \mathbf{F}^4$, we have
+\[
+    (x,y,z,w) = (x,x,z,z) +(0,y-x,0,w-z)\in U+W
+\]
+since $(x,x,z,z)\in U$ and $(0,y-x,0,w-z)\in W$. We have $\mathbf{F}^4 = U + W$.
+
+Moreover, if $(x,y,z,w) \in U \cap W$, then we must have $x = y$ and $z = w$ since $(x,y,z,w) \in U$.
+
+Similarly, since $(x,y,z,w)\in W$, we have $x = 0$ and $z = 0$. Therefore, $x = y = 0$ and $z = w = 0$, hence $(x,y,z,w) = (0,0,0,0)$.
+It follows that $U\cap W = {0}$. Hence $F = U \oplus W$.
 
 \subsection{}
 Suppose
@@ -425,6 +686,13 @@ Suppose
 \]
 Find a subspace $W$ of $\mathbf{F}^{5}$ such that $\mathbf{F}^{5}=U \oplus W$
 \paragraph{}
+$W = \{(0,0,a,b,c)\in \mathbf{F}^5: a,b,c \in \mathbf{F}\}$. For any $(x,y,a,b,c)\in \mathbf{F}^5$, we have
+\[
+    (x,y,a,b,c) = (x,y,x+y,x-y,2x) + (0,0,a-x-y,b-x+y,c-2x)\in U+W
+\]
+since $(x,y,x+y,x-y,2x)\in U$ and $(0,0,a-x-y,b-x+y,c-2x) \in W$. Therefore $\mathbf{F}^5 = U + W$.
+
+And we will have the same procedure to proof $U \cap W = {0}$ like Problem 20. So $\mathbf{F}^{5}=U \oplus W$.
 
 \subsection{}
 Suppose
@@ -433,6 +701,15 @@ Suppose
 \]
 Find three subspaces $W_{1}, W_{2}, W_{3}$ of $\mathbf{F}^{5},$ none of which equals $\{0\},$ such that $\mathbf{F}^{5}=U \oplus W_{1} \oplus W_{2} \oplus W_{3}$
 \paragraph{}
+It's easy to find.
+\[
+    \begin{aligned}
+         & W_1 = \{(0,0,a,0,0) \in \mathbf{F}^5: a \in \mathbf{F}\} \\
+         & W_2 = \{(0,0,0,b,0) \in \mathbf{F}^5: b \in \mathbf{F}\} \\
+         & W_3 = \{(0,0,0,0,c) \in \mathbf{F}^5: c \in \mathbf{F}\} \\
+    \end{aligned}
+\]
+By the same argument as in Problem 20\&21, we have $\mathbf{F}^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
 
 \subsection{}
 Prove or give a counterexample: if $U_{1}, U_{2}, W$ are subspaces of $V$ such that
@@ -441,6 +718,8 @@ Prove or give a counterexample: if $U_{1}, U_{2}, W$ are subspaces of $V$ such t
 \]
 then $U_{1}=U_{2}$
 \paragraph{}
+Let $V = \mathbf{R}^2, U_1 = \{(x,0)\in \mathbf{R}^2 : x\in \mathbf{R}\}, U_2 = \{(0,y)\in \mathbf{R}^2 : y\in \mathbf{R}\}, W = \{(a,a)\in \mathbf{R}^2: a\in \mathbf{R}\}$.
+We have $V = U_1 \oplus W$ and $V = U_2 \oplus W$, but $U_1\neq U_2$.
 
 \subsection{}
 A function $f: \mathbf{R} \rightarrow \mathbf{R}$ is called even if
@@ -458,5 +737,18 @@ Let $U_{\mathrm{e}}$ denote the set of real-valued even functions on $\mathbf{R}
     \mathbf{R}^{\mathbf{R}}=U_{\mathrm{e}} \oplus U_{\mathrm{o}}.
 \]
 \paragraph{}
+Given $f\in \mathbf{R^R}$ and two other function made by $f$:
+\[
+    f_e = \frac{f(x) + f(-x)}{2} \quad f_o = \frac{f(x) - f(-x)}{2}
+\]
+Of course, $f_e,f_o\in \mathbf{R^R}$.
+
+Apparently, $f = f_e + f_o \in U_e + U_o$, so we get $\mathbf{R^R} = U_e + U_o$.
+
+Let $f \in U_e\cap U_o$, then $f(x) = f(-x)$ since $f\in U_e$ and $f(x) = -f(x)$ since $f\in U_o$
+for all $x\in \mathbf {R}$. Sum up the two equations, we get $f(x) = 0$ for all $x\in \mathbf{R}$.
+
+Hence $f = 0$, which implies $U_e\cap U_o = \{0\}$ and $\mathbf{R^R} = U_e \oplus U_o$.
+
 
 \end{document}
