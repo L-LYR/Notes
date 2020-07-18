@@ -887,3 +887,5 @@ printf("function() used %.3f seconds.\n", elapsed / CLOCKS_PER_SEC);
 
 ## 可移植性
 
+我不太认同本书所述的部分可移植性。
+

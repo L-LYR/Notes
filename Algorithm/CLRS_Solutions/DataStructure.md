@@ -2,8 +2,6 @@
 
 ------
 
-
-
 # 0. Preface
 
 ### 动态集合
@@ -17,11 +15,9 @@
 ### 动态集合上的操作
 
 - 分为两类：简单返回有关集合信息的查询操作和改变集合的修改操作。
-  - Search(S,x) Insert(S,x) Delete(S,x) Minimum(S) Maximum(S) Successor(S,x) Predecessor(S,x)
+  - `Search(S,x) Insert(S,x) Delete(S,x) Minimum(S) Maximum(S) Successor(S,x) Predecessor(S,x)`
 
 ------
-
-
 
 # 1. Basic Data Structure
 
@@ -42,11 +38,9 @@
 ```c++
 template <class T>
 
-class Stack
-{
+class Stack{
   private:
-    enum
-    {
+    enum{
         MAX = 100 //标志栈的大小
     };
     T stack[MAX];
