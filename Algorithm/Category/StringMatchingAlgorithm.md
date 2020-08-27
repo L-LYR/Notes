@@ -100,49 +100,32 @@ next[5] = j =3
 ```
 
 ```c++
-class KMP
-{
+class Solution {
 public:
-    int solve(const string &mstr, const string &pstr)
-    {
-        int p_len = pstr.length(), m_len = mstr.length(), det = m_len - p_len;
-        if (det < 0)
-            return -1;
-        if (pstr.empty())
-            return 0;
-
-        vector<int> next(p_len + 1, -1);
-
-        int m = 0, p = -1;
-
-        while (m < p_len)
-        {
-            if (p == -1 || pstr[m] == pstr[p])
-            {
-                ++m;
-                ++p;
-                next[m] = p;
-            }
-            else
-                p = next[p];
-        }
-
-        m = 0, p = 0;
-        while (m < m_len && p < p_len)
-        {
-            if (p == -1 || mstr[m] == pstr[p])
-            {
-                ++m;
-                ++p;
-            }
-            else
-                p = next[p];
-        }
+    int strStr(string m_str, string p_str) {
+        if (p_str == "") return 0;
+        if (m_str.length() < p_str.length()) return -1;
         
-        if (p == p_len)
-            return m - p;
-        else
-            return -1;
+        vector<int> next(p_str.length() + 1, -1);
+        int m, p;
+        // get next array
+        m = 0, p = -1;
+        while (m < p_str.length()) {
+            while (p != -1 && p_str[p] != p_str[m]) p = next[p];
+            ++p;
+            ++m;
+            next[m] = p;
+        }
+        m = 0, p = 0;
+        while (m < m_str.length()) {
+            cout << m << " " << p << endl;
+            while (p != -1 && p_str[p] != m_str[m]) p = next[p];
+            ++m;
+            ++p;
+            if (p == p_str.length()) return m - p;
+        }
+
+        return -1;
     }
 };
 ```
