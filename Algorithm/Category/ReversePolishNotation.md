@@ -41,7 +41,7 @@ typedef struct char_stack
     char *data;
 } char_stack;
 
-char_stack *create_initialize_stack(int size);
+char_stack *init_stack(int size);
 char top_data(char_stack *A);
 int pop(char_stack *A, char *x);
 int push(char_stack *A, char x);
@@ -60,7 +60,7 @@ int main(void)
     return 0;
 }
 
-char_stack *create_initialize_stack(int size)
+char_stack *init_stack(int size)
 {
     char_stack *A = (char_stack *)malloc(sizeof(char_stack));
     A->data = (char *)malloc(sizeof(char) * size);
