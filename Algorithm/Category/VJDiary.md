@@ -1,5 +1,3 @@
-## 7.31 - 8.9
-
 ### 周期串(Periodic Strings)(UVa455)
 
 > 对于一个字符串`abcabcabc`求其最小周期子串。
