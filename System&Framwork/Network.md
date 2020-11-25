@@ -541,10 +541,6 @@ IP地址与子网掩码按位与即可得到网络地址。
 
 ### SDN（Software-Defined Networking）
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-==（TODO）==
-=======
 ==（TODO）==
 
 ## 路由协议
@@ -711,8 +707,3 @@ $$
 ### BGP（Broder Gateway Protocol）
 
 ==（TODO）==
-
->>>>>>> Stashed changes
-=======
-==（TODO）==
->>>>>>> 2f897d6a475c7351f4353680290ea26784d3ede6
