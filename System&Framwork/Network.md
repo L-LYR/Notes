@@ -303,6 +303,7 @@
 | ATM          | CBR（Constant Bit Rate）  | 保证恒定速率 | 是         | 有序 | 维持   | 无拥塞   |
 | ATM          | ABR（Available Bit Rate） | 保证最小速率 | 无         | 有序 | 维持   | 提供指示 |
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 ## 虚电路与数据报
 
@@ -312,6 +313,11 @@
 
 #### 虚电路
 >>>>>>> Stashed changes
+=======
+## 虚电路与数据报
+
+### 虚电路
+>>>>>>> 2f897d6a475c7351f4353680290ea26784d3ede6
 
 目标：使收发双方之间的路径表现得如同电话线路一般。
 
@@ -339,11 +345,15 @@
 - 用于ATM（Asynchronous Transfer Mode）异步传输模式，帧中继，X.25网络。
 - **今天的因特网已经不再使用**。
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 ### 数据报
 =======
 #### 数据报
 >>>>>>> Stashed changes
+=======
+### 数据报
+>>>>>>> 2f897d6a475c7351f4353680290ea26784d3ede6
 
 特点：
 
@@ -359,11 +369,15 @@
 
 ==（TODO）==
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 ## 网际协议——转发与编址
 =======
 ## 网际协议
 >>>>>>> Stashed changes
+=======
+## 网际协议——转发与编址
+>>>>>>> 2f897d6a475c7351f4353680290ea26784d3ede6
 
 ### IP地址
 
@@ -527,6 +541,7 @@ IP地址与子网掩码按位与即可得到网络地址。
 
 ### SDN（Software-Defined Networking）
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 ==（TODO）==
 =======
@@ -698,3 +713,6 @@ $$
 ==（TODO）==
 
 >>>>>>> Stashed changes
+=======
+==（TODO）==
+>>>>>>> 2f897d6a475c7351f4353680290ea26784d3ede6
