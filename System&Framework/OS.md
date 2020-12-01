@@ -6,6 +6,16 @@
 
 ## 操作系统的发展
 
+- 存储程序式计算机
+  - 基本部件
+    - CPU：运算器，控制器，寄存器
+    - 存储其：存储程序与数据
+    - IO设备：输入数据，输出计算结果
+  - 特点
+    - 过程性：模拟人工
+    - 集中控制：CPU集中管理
+    - 顺序性：顺序执行
+
 ![](./img/os1.png)
 
 - 手工操作阶段
@@ -128,3 +138,130 @@
       - 软实时：系统中截止期限被错过的情况下，只造成系统性能下降而不会带来严重后果。
   - 个人计算机
   - 分布式系统
+
+# Chapter2
+
+- 操作命令（用户界面）
+  - 命令接口
+    - 作业控制语言
+    - 键盘命令
+    - 图形化用户界面
+  - 程序接口
+
+- 操作系统结构类型
+
+  - 单体结构![](./img/os4.png)
+  - 模块化结构![](./img/os5.png)
+  - 可扩展内核结构![](./img/os6.png)
+  - 层次结构![](./img/os7.png)
+
+- 1. Monolithic Kernel
+     1. Entire operating system is placed in kernel space.
+     2. All OS code runs in privileged mode (ring 0 on x86).
+     3. Different functions of the OS are divided into subsystems.
+     4. Higher performance at the expanse of poorer modularity and separation of components.
+
+  2. Micro-Kernel
+     1. Bare minimum of code runs in kernel space.
+     2. Basic addressing, IPC, and scheduling.
+     3. Under 10,000 LOC as a rule of thumb.
+     4. Rest of the OS is divided into a collection of servers running in userspace, generally with lower privileges.
+     5. Excellent modularity, but performance suffers.
+
+  3. Hybrid Kernel
+
+- ![](./img/os8.png)
+
+- 层次结构
+  - UNIX
+    - ![](./img/os9.png)
+  - Linux
+    - ![](./img/os10.png)
+  - Windows
+    - ![](./img/os11.png)
+
+## 特权级
+
+- 定义
+  - 处理机的态，又称处理机的特权级，是中央处理机的工作状态。当前运行的程序决定处理机的态。
+  - 程序的类别
+    - 管理程序：管理系统资源；控制程序运行
+    - 用户程序：使用资源，提出申请；被控制
+- 特权级分类
+  - 管态：操作系统的管理程序执行时机器所处的状态，又称处理机的特权级。在此状态下处理机可使用全部指令（包括一组特权指令）；使用全部系统资源（包括整个存储区域）。
+  - 用户态：用户程序执行时机器所处的状态称为用户态。在此状态下禁止使用特权指令，不能直接取用资源与改变机器状态，并且只允许用户程序访问自己的存储区域。
+
+- 特权级划分的目的
+  - 保护操作系统
+- 特权指令
+  - 涉及外部设备的IO指令
+  - 修改特殊寄存器的指令
+  - 改变机器状态的指令
+
+## 中断
+
+- i386的异常和中断的定义：
+  - Exceptions and interrupts are both "==protected control transfers==", which cause the processor to switch from user to kernel mode (CPL=0) ==without giving the user-mode code any opportunity to interfere with the functioning of the kernel or other environments==. In Intel's terminology, an interrupt is a protected control transfer that is caused by an ==asynchronous== ==event== usually ==external== to the processor, such as notification of external device I/O activity. An exception, in contrast, is a protected control transfer caused ==synchronously== by the ==currently running code==, for example due to a divide by zero or an invalid memory access.
+  - 异常（Exception）在i386中与trap是一个意思，但中文翻译的时候往往翻译成异常、陷阱或俘获，其实是一个意思。
+  - 异常是由于程序的行为（如除0错、缺页等）导致的同步事件，必须由计算机立刻处理。处理完成后，回到程序发生异常处继续执行。
+  - 中断是指某个事件（例如键盘输入、I/O传输结束等）发生时，系统中止现行程序的运行、引出处理事件程序对该事件进行处理，处理完毕后返回现行程序的下一条指令，继续执行。
+  - 中断处理的时机在指令的间隙，当前指令执行完毕后会检测是否有中断到达，并由系统决定是否进入中断处理。
+- 中断源：引起中断的事件称中断源，如打印完成中断，其中断源是打印机。
+- 断点：发生中断时正在运行的程序被暂时停止，程序的暂停点称为断点。例如，某程序正在执行0200地址的指令被中断，那么，0200地址就是断点， 在中断返回时就执行0200的下一条指令。
+- 中断响应：处理机发现有中断请求时，暂停现运行程序的执行并自动引出中断处理程序的过程。（实质：交换指令地址及处理机的状态信息）
+  - ![](./img/os12.png)
+- 现场
+  - 中断的那一时刻可能确保程序继续运行的有关信息。
+    - 后继指令所在主存的单元号
+    - 程序运行所处的状态
+    - 指令执行情况
+    - 程序执行的中间结果等
+  - 保护现场
+    - 当中断发生时，必须立即把现场信息保存在主存中。
+  - 恢复现场
+    - 程序重新运行之前，把保留的该程序现场信息从主存中送至相应的指令计数器、通用寄存器或一些特殊的寄存器中。
+- 程序状态字
+  - 反应程序执行时机器所处的现行状态的代码。
+  - 内容：指令地址，指令执行情况，处理机状态，中断屏蔽字等
+- 中断装置：指发现中断，响应中断的硬件。
+- 中断处理程序：由软件来完成。
+- 中断由软硬件协同处理，中断系统 = 中断装置 + 中断处理程序
+- 分类
+  - 中断
+    - 外部中断（非通道设备，如时钟中断）
+    - IO中断（外部设备或通道设备）
+  - 异常
+    - 机器故障
+    - 程序性错误或非法操作（运算溢出及错误、越界、非法操作，用户态使用管态指令）
+    - 访管中断（系统功能调用）：操作系统提出某种需求（IO请求，创建进程等）
+
+## 硬件
+
+- 存储器
+  - 内存（主存）
+    - 处理机能直接访问的存储器称为主存储器，用来存放正在或将要执行的系统和用户程序和数据以及程序执行时要求的临时存储空间。
+    - ROM、RAM
+  - 外存（辅存）
+    - 处理机不能直接访问的存储器，如磁盘、磁带、光盘等，用来存放大量的数据信息。
+- DMA
+  - ![](./img/os13.jpg)
+- 时钟硬件
+  - ![](./img/os14.jpg)
+  - 实时时钟（Real Time Clock，RTC）
+    - 在PC机断电后仍能保存时间
+    - 通过主板上的电池供电；通常与CMOS RAM集成到一块芯片上，也称为 CMOS Timer
+    - 可在系统初启时读入并转换为相对于某一基准时间的时钟滴答数
+    - 操作系统提供实用程序可以设置系统时钟和RTC并在二者之间同步
+  - 可编程间隔定时器（Programmable Interval Timer，PIT）
+    - 工作模式
+      - One-shot mode
+      - Square-wave mode
+    - 时钟滴答（Clock tick）
+    - 周期性地发生时钟中断（可编程设置间隔）
+  - 时间戳计数器（Time Stamp Counter，TSC）
+    - Pentium之后的CPU中包含的64位的寄存器
+    - 在每一个振荡信号到达时，该计数器递增
+    - 可为操作系统提供更准确的时间度量
+
+
+
