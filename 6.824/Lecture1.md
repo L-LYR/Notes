@@ -1,0 +1,49 @@
+# Introduction
+
+- What is a distributed system?
+  - Multiple cooperating computers
+  - Storage for big web sites, MapReduce, peer-to-peer sharing
+  - Lots of critical infrastructure is distributed
+- Why do people build distributed systems?
+  - To increase capacity via parallelism
+  - To tolerate faults via replication
+  - To place computing physically close to external entities
+  - To achieve security via isolation
+  - Challenges
+    - Many concurrent parts, complex interactions
+    - Must cope with partial failure
+    - Tricky to realize performance potential
+- The big goal: abstractions that hide the complexity of distribution.
+  - Implementation
+    - RPC, threads, concurrency control
+  - Performance
+    - Goal: scalable throughput
+    - For example, Nx servers -> Nx total throughput via parallel CPU, disk, net.
+    - But Scaling gets harder as N grows:
+      - Load imbalance, stragglers, slowest-of-N latency.
+      - Not-parallelizable code: initialization, interaction.
+      - Bottlenecks from shared resources, e.g. network.
+    - Some performance problems aren't easily solved by scaling
+      - Quick response time for a single user request.
+      - All users want to update the same data.
+    - Performance often requires better design rather than just more computers.
+  - Fault tolerance
+    - Hide failures from the application.
+    - Availability: app can make progress despite failures.
+    - Recoverability: app will come back to life when failures are repaired.
+    - Big idea: replicated servers.
+  - Consistency
+    - General-purpose infrastructure needs well-defined behavior.
+      - E.g. "`Get(k)` yields the value from the most recent `Put(k, v)`."
+    - Achieving good behavior is hard!
+      - "Replica" servers are hard to keep identical.
+      - Clients may crash midway through multi-step update.
+      - Servers may crash, e.g. after executing but before replying.
+      - Network partition may make live servers look dead; risk of "split brain".
+    - Consistency and performance are enemies.
+      - Strong consistency requires communication.
+        - e.g. `Get()` must check for a recent `Put()`.
+      - Many designs provide only weak consistency, to gain speed.
+        - e.g. `Get()` does *not* yield the latest `Put()`!
+      - Painful for application programmers but may be a good trade-off.
+    - Many design points are possible in the consistency/performance spectrum!
