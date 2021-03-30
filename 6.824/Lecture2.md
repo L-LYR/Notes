@@ -1,0 +1,44 @@
+# RPC
+
+- Remote Procedure Call
+  - A key piece of distributed system machinery.
+  - Goal: easy-to-program client/server communication
+  - Hide details of network protocols
+  - Convert data (strings, arrays, maps, ...) to "wire format"
+- A few details
+  - Binding: how does client know what server computer to talk to?
+    - For Go's RPC, server name/port is an argument to Dial.
+    - Big systems have some kind of name of configuration server.
+  - Marshalling: format data into packets
+    - Go's RPC library can pass strings, arrays, objects, maps, ...
+    - Go passes pointers by copying the pointed-to data.
+    - Cannot pass channels or functions.
+- Failures
+  - lost packet, broken network, slow server, crashed server, ...
+  - What does a failure look like to the client RPC library?
+    - Client never sees a response from the server.
+    - Client does not know if the server saw the request!
+      - Maybe server never saw the request.
+      - Maybe server executed, crashed just before sending reply.
+      - Maybe server executed, but network died just before delivering reply.
+      - ......
+  - Simplest failure-handling scheme: "best effort"
+    - `Call()` waits for response for a while. If none arrives, re-send the request. Do this a few times. Then give up and return an error.
+    - A particularly bad situation:
+      - Client executes: `Put("k", 10); Put("k", 20);`
+      - Both succeed. What will `Get("k")` yield?
+    - For read-only operations, operations that do nothing if repeated. For this kind of case, "best effort" is ever OK.
+- Better RPC behavior: "at most once"
+  - Idea: server RPC code detects duplicate requests and returns previous reply instead of re-running handler.
+  - Implementation: client includes unique ID (XID) with each request.
+  - What if two clients use the same XID?
+    - Combine unique client ID (IP address?) with sequence #?
+- Go RPC is a simple form of "at-most-once"
+  - Open TCP connection
+  - Write request to TCP connection
+  - Go RPC never re-sends a request
+    - So server won't see duplicate requests
+  - Go RPC code returns an error if it doesn't get a reply
+    - perhaps after a timeout (from TCP)
+    - perhaps server didn't see request
+    - perhaps server processed request but server/net failed before reply came back
